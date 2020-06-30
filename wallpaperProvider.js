@@ -1,12 +1,12 @@
-const Lang = imports.lang;
+const Lang = imports.lang
 
-const Gio = imports.gi.Gio;
-const Gtk = imports.gi.Gtk;
+const Gio = imports.gi.Gio
+const Gtk = imports.gi.Gtk
 
-const Signals = imports.signals;
+const Signals = imports.signals
 
-const Self = imports.misc.extensionUtils.getCurrentExtension();
-const Utils = Self.imports.utils;
+const Self = imports.misc.extensionUtils.getCurrentExtension()
+const Utils = Self.imports.utils
 
 const Provider = new Lang.Class({
   Name: 'WallpaperProviderBase',
@@ -15,37 +15,37 @@ const Provider = new Lang.Class({
   wallpapers: [],
 
   _init: function () {
-    Signals.addSignalMethods(this);
+    Signals.addSignalMethods(this)
   },
 
   next: function (callback) {
     function notCurrent(file) {
-      return file !== this.currentWallpaper;
+      return file !== this.currentWallpaper
     }
 
     if (this.wallpapers.length > 1) {
-      const index = Math.floor(Math.random() * (this.wallpapers.length - 1));
-      this.currentWallpaper = this.wallpapers.filter(Lang.bind(this, notCurrent))[index];
+      const index = Math.floor(Math.random() * (this.wallpapers.length - 1))
+      this.currentWallpaper = this.wallpapers.filter(Lang.bind(this, notCurrent))[index]
     } else {
-      this.currentWallpaper = this.wallpapers[0];
+      this.currentWallpaper = this.wallpapers[0]
     }
 
     if (callback) {
-      callback(this.currentWallpaper);
+      callback(this.currentWallpaper)
     }
   },
 
   get: function () {
-    return this.currentWallpaper;
+    return this.currentWallpaper
   },
 
   getPreferences: function () {
-    let prefs = Self.dir.get_path() + '/preferences/' + this.__name__.toLowerCase() + '.ui';
-    let prefsFile = Gio.File.new_for_path(prefs);
+    let prefs = Self.dir.get_path() + '/preferences/' + this.__name__.toLowerCase() + '.ui'
+    let prefsFile = Gio.File.new_for_path(prefs)
     if (!prefsFile.query_exists(null)) {
-      prefs = Self.dir.get_path() + '/preferences/provider.ui';
+      prefs = Self.dir.get_path() + '/preferences/provider.ui'
     }
-    const builder = Gtk.Builder.new_from_file(prefs);
-    return builder;
+    const builder = Gtk.Builder.new_from_file(prefs)
+    return builder
   }
-});
+})
