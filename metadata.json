@@ -3,6 +3,6 @@
   "name": "Wallpaper Mode",
   "description": "Save the pixels of your monitors by showing different wallpapers all the time.",
   "shell-version": ["3.36"],
-  "url": "https://github.com/velitasali/gnome-wallpaper-slideshow",
+  "url": "https://github.com/velitasali/gnome-wallpaper-mode",
   "version": 1
 }
