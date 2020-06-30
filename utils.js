@@ -1,10 +1,3 @@
-let DEBUG = false;
-function debug(message, name) {
-  if (!DEBUG) return;
-  name = name ? ' - ' + name : '';
-  global.log('[wallpaper-changer' + name + '] ' + message);
-}
-
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 
@@ -54,7 +47,7 @@ function getSettings(provider) {
   if (provider) {
     sub = '.providers.' + provider.__name__.toLowerCase();
   }
-  const schema = 'org.gnome.shell.extensions.wallpaper-changer' + sub;
+  const schema = 'org.gnome.shell.extensions.wallpaper-mode' + sub;
 
   const GioSSS = Gio.SettingsSchemaSource;
 
@@ -78,10 +71,7 @@ function getSettings(provider) {
 }
 
 function realPath(path) {
-  return path.startsWith('~')
-    ? HOME
-    + path.slice(1)
-    : path;
+  return path.startsWith('~') ? HOME + path.slice(1) : path;
 }
 
 function makeDirectory(path) {
@@ -114,6 +104,5 @@ function getFolderWallpapers(dir) {
 
 function isValidWallpaper(file, type) {
   const ext = file.substring(file.lastIndexOf('.') + 1).toLowerCase();
-  return type == Gio.FileType.REGULAR
-    && VALID_EXTENSIONS.indexOf(ext) !== -1
+  return type == Gio.FileType.REGULAR && VALID_EXTENSIONS.indexOf(ext) !== -1
 }

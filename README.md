@@ -1,20 +1,20 @@
-Unmaintained, as I do not use GNOME currently. If you are willing to maintain this, please reach out to me.
+# GNOME Wallpaper Mode
 
-# gnome-wallpaper-changer
-GNOME extension to change wallpaper from providers
+This GNOME Extension will change your desktop wallpaper in a given time. It is a fork of [gnome-wallpaper-mode](https://github.com/Jomik/gnome-wallpaper-mode). Also, it uses *Transparent Topbar* internally. 
 
-## Install instructions
-```
-git clone https://github.com/Jomik/gnome-wallpaper-changer.git ~/.local/share/gnome-shell/extensions/wallpaper-changer@jomik.org
-cd ~/.local/share/gnome-shell/extensions/wallpaper-changer@jomik.org
-glib-compile-schemas ./schemas/
-```
+## Main goals
 
-Relog and you are good to go!
+* Enjoy all the wallpapers you admire. 
+* You have a multi-monitor setup, and sometimes, you only use one of them while the others are just waiting (and burning their pixels away).
+* You sit in front of the computer, and you need to see the different colors of the visible spectrum to simulate real life.
 
-## Folder provider
-Looks, by default, for wallpapers in `~/wallpapers` and applies them at random.
+# Features
 
-## Wallhaven provider
-As default SFW General pictures with the ratio 16x9 from wallhaven.cc and applies them to your pictures.
-It downloads a page of pictures at once and deletes them as they are used.
+* Has adjustable shortcut in the status bar (the fork did not provide an option for)
+* Can make status bar semi-transparent
+* Simplified usage
+* Up-to-date code 
+
+## Notes
+
+I removed some of the features that I find unnecessary. For instance, you can only choose folders as a source.

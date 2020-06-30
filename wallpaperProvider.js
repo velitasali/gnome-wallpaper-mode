@@ -16,11 +16,9 @@ const Provider = new Lang.Class({
 
   _init: function () {
     Signals.addSignalMethods(this);
-    Utils.debug('_init', this.__name__);
   },
 
   next: function (callback) {
-    Utils.debug('next', this.__name__);
     function notCurrent(file) {
       return file !== this.currentWallpaper;
     }
@@ -32,29 +30,22 @@ const Provider = new Lang.Class({
       this.currentWallpaper = this.wallpapers[0];
     }
 
-    Utils.debug('next' + this.currentWallpaper, this.__name__);
     if (callback) {
       callback(this.currentWallpaper);
     }
   },
 
   get: function () {
-    Utils.debug('get', this.__name__);
     return this.currentWallpaper;
   },
 
   getPreferences: function () {
-    Utils.debug('getPreferences', this.__name__);
-    let prefs = Self.dir.get_path() + '/preferences/' + this.__name__.toLowerCase() + '.xml';
+    let prefs = Self.dir.get_path() + '/preferences/' + this.__name__.toLowerCase() + '.ui';
     let prefsFile = Gio.File.new_for_path(prefs);
     if (!prefsFile.query_exists(null)) {
-      prefs = Self.dir.get_path() + '/preferences/provider.xml';
+      prefs = Self.dir.get_path() + '/preferences/provider.ui';
     }
     const builder = Gtk.Builder.new_from_file(prefs);
     return builder;
-  },
-
-  destroy: function () {
-    Utils.debug('destroy', this.__name__);
   }
 });

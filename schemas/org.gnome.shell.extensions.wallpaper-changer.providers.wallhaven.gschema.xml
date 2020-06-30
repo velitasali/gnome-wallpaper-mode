@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <schemalist gettext-domain="gnome-shell-extensions">
-  <schema id="org.gnome.shell.extensions.wallpaper-changer.providers.wallhaven"
-      path="/org/gnome/shell/extensions/wallpaper-changer/">
+  <schema id="org.gnome.shell.extensions.wallpaper-mode.providers.wallhaven"
+      path="/org/gnome/shell/extensions/wallpaper-mode/">
     <key name="query" type="s">
       <default>""</default>
       <summary>Search query</summary>

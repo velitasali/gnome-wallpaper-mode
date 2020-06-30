@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<interface domain="wallpaper-changer">
+<interface domain="wallpaper-mode">
 
 <object class="GtkGrid" id="prefs_page">
 	<property name="margin">18</property>
